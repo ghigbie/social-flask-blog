@@ -1,6 +1,11 @@
 from puppycompanyblog import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from datetime import datetime
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
 class User(db.Model, UserMixin):
@@ -28,3 +33,14 @@ class User(db.Model, UserMixin):
 class BlogPost(db.Model):
 
     __tablename__ = 'blog_posts'
+    users = db.relationship(User)
+    id = db.Column(db.Integer,primary_key=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    date = dbColumn(db.DateTime, nullable=False, default=datetime.utcnow)
+    title = db.Column(db.String(140), nullable=False)
+    text db.Column(db.Text, nullable=False)
+
+    def init(self, date, title, text)
+        self.date = date
+        self.title = title
+        self.text = text
