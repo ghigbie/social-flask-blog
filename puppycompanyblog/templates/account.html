@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+<div align='center'>
+    <h1>Welcome to the pge for {{ current_user.username }}</h1>
+    <img align='center' 
+         src="{{url_for('static',filename='profile_pics/'+current_user.profile_image)}}" 
+         alt="profile image">
+    <div class="container">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+        </form>
+    </div>
+</div>
+{% endblock %}
