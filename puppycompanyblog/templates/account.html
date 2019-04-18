@@ -8,20 +8,20 @@
         <form method="POST">
             {{ form.hidden_tag() }}
             <div class="form-group">
-                {{ form.email.label }}
-                {{ form.email(class="form-control") }}<br>
+                {{ form.email.label(class="form-group") }}
+                {{ form.email(class="form-control") }}
             </div>
             <div class="form-group">
-                {{ form.useranme.label }}
-                {{ form.username(class="form-control") }}<br>
+                {{ form.useranme.label(class="form-group") }}
+                {{ form.username(class="form-control") }}
             </div>
             <div class="form-group">
-                {{ form.email.label }}
-                {{ form.email(class="form-control") }}<br>
+                {{ form.email.label(class="form-group") }}
+                {{ form.email(class="form-control") }}
             </div>
             <div class="form-group">
-                {{ form.picture.label }}
-                {{ form.picture(class="form-control") }}<br>
+                {{ form.picture.label(class="form-group") }}
+                {{ form.picture(class="form-control") }}
             </div>
             {{ form.submit }}
         </form>
