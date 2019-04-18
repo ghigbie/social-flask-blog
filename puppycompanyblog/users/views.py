@@ -49,13 +49,21 @@ def logout():
 def account():
     form = UpdateUsersForm()
     if form.validate_on_submit():
+
         if form.picture.data:
             username = current_user.username
             pic = add_profile_pic(form.picturedata, username)
             current_user.profile_image = pic
         
-    current_user.username = form.username.data
-    current_user.email = from.email.data
-    db.session.commit()
-    flash('User Account Updated!')
-    return redirect(url_For('users.account'))
+        current_user.username = form.username.data
+        current_user.email = from.email.data
+        db.session.commit()
+        flash('User Account Updated!')
+        return redirect(url_For('users.account'))
+
+    elif request.method == "GET":
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+
+    profile_image = url_for('static', filename='profile_pics/'+current_user.profile_image)
+    return render_template('account.html', profile_image=profile_image, form=form)
