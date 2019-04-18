@@ -1,4 +1,11 @@
 {% extedns "base.html" %}
 {% block content %}
-
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.email.label }}{{ form.email }}<br>
+    {{ form.useranme.label }}{{ form.username }}<br>
+    {{ form.password.label }}{{ form.password }}<br>
+    {{ form.pass_confrim.label }}{{ form.pass_confirm }}<br>
+    {{ form.submit }}
+</form>
 {% endblock %}
