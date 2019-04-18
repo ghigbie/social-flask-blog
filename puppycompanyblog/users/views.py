@@ -44,3 +44,18 @@ def logout():
     logout_user()
     return redirect(url_for("core.index"))
 
+@users.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    form = UpdateUsersForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            username = current_user.username
+            pic = add_profile_pic(form.picturedata, username)
+            current_user.profile_image = pic
+        
+    current_user.username = form.username.data
+    current_user.email = from.email.data
+    db.session.commit()
+    flash('User Account Updated!')
+    return redirect(url_For('users.account'))
