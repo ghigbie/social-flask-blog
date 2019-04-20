@@ -40,7 +40,7 @@ class BlogPost(db.Model):
     title = db.Column(db.String(140), nullable=False)
     text = db.Column(db.Text, nullable=False)
 
-    def init(self, title, text, user_id)
+    def init(self, title, text, user_id):
         self.title = title
         self.text = text
         self.user_id = user_id
