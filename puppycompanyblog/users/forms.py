@@ -15,7 +15,7 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     email = StringField('Email: ', validators=[DataRequired(), Email()])
     username = StringField('Username: ', validators=[DataRequired()])
-    password = PasswordField('Password: ', validators=[DataREquired(), EqualTo('pass_corfirm'), message("Passwords must match")])
+    password = PasswordField('Password', validators=[DataRequired(), EqualTo('pass_confirm', message='Passwords Must Match!')])
     pass_confirm = PasswordField('Confirm Password: ', validators=[DataRequired()])
     submit = SubmitField('Register')
 
@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
 class UpdateUserForm(FlaskForm):
     email = StringField('Email: ', validators=[DataRequired(), Email()])
     username = StringField('Username: ', validators=[DataRequired()])
-    picture = FieldField('Update profile picture: ', validators=[FileAllowed(['png', 'jpg'])])
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
     def check_email(self, field):
