@@ -14,6 +14,13 @@
     <br>
     <p>{{post.text}}</p>
     <br>
+    {% endfor %}
 </div>
-{% endfor %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content">
+        {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1 %}
+        {% endfor %}
+    </ul>
+</nav>
+
 {% endblock %}
