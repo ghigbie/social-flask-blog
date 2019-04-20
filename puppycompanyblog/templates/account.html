@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% block content %}
 <div align='center'>
-    <h1>Welcome to the pge for {{ current_user.username }}</h1>
+    <h1>Welcome to the page for {{ current_user.username }}</h1>
     <img align='center' 
          src="{{url_for('static',filename='profile_pics/'+current_user.profile_image)}}" 
          alt="profile image">
