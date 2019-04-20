@@ -56,7 +56,7 @@ def account():
             current_user.profile_image = pic
         
         current_user.username = form.username.data
-        current_user.email = from.email.data
+        current_user.email = form.email.data
         db.session.commit()
         flash('User Account Updated!')
         return redirect(url_For('users.account'))
