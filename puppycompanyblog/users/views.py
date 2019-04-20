@@ -7,7 +7,7 @@ from puppycompanyblog.users.picture_handler import add_profile_pic
 
 users = Blueprint('users',__name__)
 
-@users.route('/register')
+@users.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
