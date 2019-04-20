@@ -44,7 +44,7 @@ def logout():
 @users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
-    form = UpdateUsersForm()
+    form = UpdateUserForm()
     if form.validate_on_submit():
 
         if form.picture.data:
