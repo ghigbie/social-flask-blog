@@ -4,19 +4,19 @@
     {{ form.hidden_tag() }}
     <div class="form-group">
     {{ form.email.label(class="form-group") }}
-    {{ form.email(class="form-control form-control-lg") }}
+    {{ form.email(class="form-control") }}
     </div>
     <div class="form-group">
     {{ form.username.label(class="form-group") }}
-    {{ form.username(class="orm-control form-control-lg") }}
+    {{ form.username(class="orm-control") }}
     </div>
     <div class="form-group">
-    {{ form.password.label(class="form-control-label") }}
-    {{ form.password(class="orm-control") }}
+    {{ form.password.label(class="form-group") }}
+    {{ form.password(class="form-control") }}
     </div>
     <div class="form-group">
-    {{ form.pass_confirm.label(class="form-control-label") }}
-    {{ form.pass_confirm(class="orm-control form-control-lg") }}
+    {{ form.pass_confirm.label(class="form-group") }}
+    {{ form.pass_confirm(class="orm-control") }}
     </div>
     {{ form.submit(class="btn btn-outline-primary") }}
 </form>
