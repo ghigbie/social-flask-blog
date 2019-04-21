@@ -56,13 +56,13 @@ def account():
         current_user.email = form.email.data
         db.session.commit()
         flash('User Account Updated!')
-        return redirect(url_For('users.account'))
+        return redirect(url_for('users.account'))
 
     elif request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
 
-    profile_image = url_for('static', filename='profile_pic/'+current_user.profile_image)
+    profile_image = url_for('static', filename='profile_pics/'+current_user.profile_image)
     return render_template('account.html', profile_image=profile_image, form=form)
 
 
