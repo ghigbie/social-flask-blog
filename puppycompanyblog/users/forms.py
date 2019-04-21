@@ -29,8 +29,8 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Your username is already in use. Please choose another.')
 
 class UpdateUserForm(FlaskForm):
-    email = StringField('Email: ', validators=[DataRequired(), Email()])
-    username = StringField('Username: ', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    username = StringField('Username', validators=[DataRequired()])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
