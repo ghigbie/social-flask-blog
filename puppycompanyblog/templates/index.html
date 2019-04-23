@@ -28,14 +28,14 @@
 </div>
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content">
-        {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1 %}
+        {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
         {% if blog_posts.page == page_num %}
         <li class="page-item disabled">
-            <a class="page-link" href="{{ url_for('core.index, page=page_num) }}"></a>
+            <a class="page-link" href="{{ url_for('core.index', page=page_num) }}"></a>
         </li>
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="{{url_for('core.index, page=page_num) }}"></a>
+            <a class="page-link" href="{{ url_for('core.index', page=page_num) }}"></a>
         </li>
         {% endif %}
         {% endfor %}
