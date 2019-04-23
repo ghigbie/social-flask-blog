@@ -14,9 +14,31 @@
                     <a href="{{ url_for('users.user_post', username=post.author.username) }}">
                        Written By: {{ post.author }}
                     </a>
+                    <p>
+                        Published on: {{ post.date.strf('%Y-%m-%d') }}
+                    </p>
+                    <a class="btn btn-outline-primary"
+                       href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">
+                        Read Blog Post
+                    </a>
                 </h2>
             </div>
         </div>
     {% endfor %}
 </div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content">
+        {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1 %}
+        {% if blog_posts.page == page_num %}
+        <li class="page-item disabled">
+            <a class="page-link" href="{{ url_for('core.index, page=page_num) }}"></a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="{{url_for('core.index, page=page_num) }}"></a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
 {% endblock %}
