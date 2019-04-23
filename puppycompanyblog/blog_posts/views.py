@@ -15,7 +15,7 @@ def create_post():
                              text=form.text.data,
                              user_id=current_user.id)
         db.session.add(blog_post)
-        db.sesson.commit()
+        db.session.commit()
         flash('Blog Post Created')
         return redirect(url_for('core.index'))
     return render_template('create_post.html', form=form)
