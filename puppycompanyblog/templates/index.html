@@ -11,7 +11,9 @@
                        href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">
                        {{ post.title }}
                     </a>
-                    <a href="{{ url_for('users.user_post', username=post.author.username) }}">{{ post.author }}</a>
+                    <a href="{{ url_for('users.user_post', username=post.author.username) }}">
+                       Written By: {{ post.author }}
+                    </a>
                 </h2>
             </div>
         </div>
