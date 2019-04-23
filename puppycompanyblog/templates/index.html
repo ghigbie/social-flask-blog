@@ -3,7 +3,7 @@
 <h1>Puppy Company Blog</h1>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem suscipit perferendis id dolorum exercitationem animi modi, amet magni placeat, ab delectus impedit incidunt? Cum, eius hic unde doloremque fugit obcaecati.</p>
 <div class="container">
-    {% for post in blog_post.items %}
+    {% for post in blog_posts.items %}
         <div class="card">
             <div class="card-body">
                 <h2>
@@ -12,11 +12,12 @@
                        {{ post.title }}
                     </a>
                     <a href="{{ url_for('users.user_post', username=post.author.username) }}">
-                       Written By: {{ post.author }}
+                       Written By: {{ post.author.username }}
                     </a>
                     <p>
                         Published on: {{ post.date.strf('%Y-%m-%d') }}
                     </p>
+                    <p class="card-text">{{ post.text[:100] }}...</p>
                     <a class="btn btn-outline-primary"
                        href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">
                         Read Blog Post
