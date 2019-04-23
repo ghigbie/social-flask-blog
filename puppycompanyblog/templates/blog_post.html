@@ -31,8 +31,11 @@
                     <p>Are you sure you want to delete the post?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                    <form action="{{ url_for('blog_post.delete_post', blog_post_id=post.id) }}"
+                          method=>
+                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                    </from>
                 </div>
             </div>
         </div>
