@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f"<Username: {self.username}, Password: {self.password}>"
+        return f"<Username: {self.username}>"
 
 class BlogPost(db.Model):
 

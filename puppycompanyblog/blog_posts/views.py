@@ -53,7 +53,7 @@ def update(blog_post_id):
 @login_required
 def delete_post(blog_post_id):
     blog_post = BlogPost.query.get_or_404(blog_post_id)
-    if blog_post_id.author != current_user:
+    if blog_post.author != current_user:
         abort(403)
     db.session.delete(blog_post)
     db.session.commit()
