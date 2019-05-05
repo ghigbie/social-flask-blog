@@ -25,7 +25,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Your email is already in use. Please choose another.')
 
     def check_username(self, field):
-        if User.query.filter_by(email=field.data).first():
+        if User.query.filter_by(username=field.data).first():
             raise ValidationError('Your username is already in use. Please choose another.')
 
 class UpdateUserForm(FlaskForm):
